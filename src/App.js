@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import FormList from './Pages/Home/FormList/FormList';
+import FormView from './Pages/Home/FormView/FormView';
+import GenerateForm from './Pages/Home/GenerateForm/GenerateForm';
+import Home from './Pages/Home/Home/Home';
+import SecondForm from './Pages/Home/SecondFrom/SecondForm';
+import Navigation from './Pages/Shared/Navigation/Navigation';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+      <Routes>
+        <Route path='/' element={< Home />} />
+        <Route path='/homepage' element={<FormList />} />
+        <Route path='/formgenerate' element={<GenerateForm />} />
+        <Route path='/secondfrom/:id' element={<SecondForm />} />
+        <Route path='/fromview' element={<FormView />} />
+
+      </Routes>
+
     </div>
   );
 }
